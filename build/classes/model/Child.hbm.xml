@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="model.Child" table="CHILDREN">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="city" type="java.lang.String">
+            <column name="CITY" />
+        </property>
+        <property name="isNaughty" type="yes_no">
+            <column name="NAUGHTY" />
+        </property>
+        
+        <many-to-one name="present" class="model.Present" access="field" fetch="join" cascade="persist" >
+			<column name="PRESENT" />
+		</many-to-one>
+		     
+    </class>
+</hibernate-mapping>
